@@ -1,0 +1,14 @@
+ .center{
+    margin: 0 auto;
+}
+
+.card > h3{
+    font-weight: 600;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+div.card-body{
+    padding: 0.8rem;
+}
+.card{
+    margin:5px;
+}
