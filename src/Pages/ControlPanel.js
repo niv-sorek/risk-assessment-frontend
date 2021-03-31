@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import UsersList from '../components/Panel/UsersList';
 import { Container, Col, Row } from 'react-bootstrap';
 import CanvasJSReact from '../assets/canvasjs.react';
-import { useHttpClient } from '../http-hook';
+import { useHttpClient } from '../hooks/http-hook';
+import LoadingSpinner from '../UIElements/LoadingSpinner';
 
 const ControlPanel = (props) => {
 	const [users, setUsers] = useState();
@@ -40,7 +40,17 @@ const ControlPanel = (props) => {
 
 	return (
 		<>
-			{users && users.length>0 &&options && (
+			{isLoading && (
+				<div className="center">
+					<LoadingSpinner />
+				</div>
+			)}
+			{error && (
+				<div className="center">
+					<h1>Users not found</h1>
+				</div>
+			)}
+			{users && users.length > 0 && options && (
 				<Container>
 					<Row>
 						<Col md={4}>
@@ -52,7 +62,7 @@ const ControlPanel = (props) => {
 					</Row>
 				</Container>
 			)}
-			{!users && <h2> error</h2>}
+			
 		</>
 	);
 };
