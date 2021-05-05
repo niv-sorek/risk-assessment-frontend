@@ -15,7 +15,7 @@ const ControlPanel = (props) => {
 				const responseData = await sendRequest(process.env.REACT_APP_BACKEND_URL + '/organisation');
 				setUsers(responseData.users);
 				const okCount = responseData.users.filter((x) => x.level < 10 && !x.suspicious).length;
-				console.log(okCount);
+				console.log(users);
 				setOptions({
 					title: {
 						text: '',
@@ -54,7 +54,7 @@ const ControlPanel = (props) => {
 				<Container>
 					<Row>
 						<Col md={4}>
-							<CanvasJSChart options={options} />
+							<CanvasJSChart  options={options} />
 						</Col>
 						<Col>
 							<UsersList users={users} />
