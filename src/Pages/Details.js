@@ -90,17 +90,14 @@ const ControlPanel = () => {
             <Col>
               {uid && <h1 className='username'>{user.id}</h1>}
               {uid && (
-                <Button
-                  variant={user.suspicious ? 'danger' : 'info'}
-                  onClick={toggleSuspicious}
-                >
-                  {!user.suspicious? ("Not "):null }SUSPICIOUS
+                <Button variant={user.suspicious ? 'danger' : 'info'} onClick={toggleSuspicious}>
+                  {!user.suspicious ? 'Not ' : null}SUSPICIOUS
                 </Button>
               )}
               <h5 className='username'>Risk Level: {user.level}</h5>
             </Col>
           </Row>
-          <div style={{marginTop:20 , marginBottom:30}}>
+          <div style={{ marginTop: 20, marginBottom: 30 }}>
             <h2>{user.user_components.length} Components</h2>
             {user.user_components.length > 0 &&
               user.user_components.map((x) => {
